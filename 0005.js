@@ -10,13 +10,15 @@ function createPhoneNumber(numbers) {
     return numbers.map((number, index)=>{
         if(index == 0) {
             return "(" + `${number}`;
-        } else if(index == 3) {
-            return ")" + " " + `${number}`;
-        } else if (index == 5) {
-            return `${number}` + "-";
-        } else {
-            return `${number}`;
         }
+        if(index == 3) {
+            return ")" + " " + `${number}`;
+        }
+        if(index == 5) {
+            return `${number}` + "-";
+        }
+        return `${number}`;
+
     }).join("");
 }
 

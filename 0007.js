@@ -6,7 +6,26 @@ Examples
 [160, 3, 1719, 19, 11, 13, -21] --> 160 (the only even number) */
 
 function findOutlier(integers) {
-  let control = 0;
+  let result;
+  let check = 0;
+  
+  for (let i = 0; i < 3; i++) {
+    if (integers[i] % 2 != 0) {
+      check++;
+    } else {
+      check;
+    }
+  }
+
+  if (check < 2) {
+    result = integers.filter((number) => number % 2 != 0);
+  } else {
+    result = integers.filter((number) => number % 2 == 0);
+  }
+
+  return result[0];
+
+  /*let control = 0;
   let result;
   integers.forEach((element) => {
     if (element % 2 == 0) {
@@ -29,8 +48,7 @@ function findOutlier(integers) {
         }
       });
   }
-
-  return result;
+*/
 }
 
 console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));

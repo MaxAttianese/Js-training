@@ -5,14 +5,21 @@ We will consider a, e, i, o, u as vowels for this Kata (but not y).
 The input string will only consist of lower case letters and/or spaces. */
 
 function getCount(str) {
-    const vowals = ["a", "e", "i", "o", "u"];
-    let count = 0;
+  const vowals = ["a", "e", "i", "o", "u"];
+  /*let count = 0;
     str.split("").forEach(element => {
         if(vowals.includes(element.toLowerCase())) {
             count++;
         }
     });
+    return count;*/
+
+  return str.split("").reduce((count, letter) => {
+    if (vowals.includes(letter.toLowerCase())) {
+      return ++count;
+    }
     return count;
+  }, 0);
 }
 
 console.log(getCount("abracadabra"));

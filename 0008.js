@@ -2,14 +2,45 @@
 What if the string is empty? Then the result should be empty object literal, {}. */
 
 function count(string) {
-  let result = {};
-  string.split("").forEach((element) => { Object.keys(result).includes(element) ? result[element] += 1 : result[element] = 1});
-  return result;
+  return string.split("").reduce((initial_value, letter) => {
+    if (initial_value[letter]) {
+      initial_value[letter] = initial_value[letter] += 1;
+    } else {
+      initial_value[letter] = initial_value[letter] = 1;
+    }
+    return initial_value;
+  }, {});
 }
 
 console.log(count("aba"));
 console.log(count(""));
-console.log(count("elefante"));
+console.log(count("Elefante"));
+
+/* Variante per stringe con caratteri misti M/m 
+function count(string) {
+  return string.split("").reduce((initial_value, letter) => {
+    if (initial_value[letter.toLowerCase()]) {
+      initial_value[letter.toLowerCase()] = initial_value[letter.toLowerCase()] += 1;
+    } else {
+      initial_value[letter.toLowerCase()] = initial_value[letter.toLowerCase()] = 1;
+    }
+    return initial_value;
+  }, {});
+}
+
+console.log(count("Massimiliano"));
+*/
+
+
+/* Variante per stringe con caratteri misti M/m 
+function count(string) {
+  /*let result = {};
+  string.split("").forEach(element => { Object.keys(result).includes(element) ? result[element] += 1 : result[element] = 1});
+  return result;
+}
+
+console.log(count("aba"));
+*/
 
 /* Variante per stringe con caratteri misti M/m 
 function count(string) {
